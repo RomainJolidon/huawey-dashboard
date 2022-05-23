@@ -1,0 +1,10 @@
+# Project related
+api/node_modules
+api/package-lock.json
+
+# Jetbreains related
+.idea
+api/.idea
+
+# VS Code related
+.code
