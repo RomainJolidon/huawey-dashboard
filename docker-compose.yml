@@ -1,0 +1,22 @@
+version: '3'
+
+services:
+  api:
+    build: ./api
+    ports:
+      - 4242:3000
+    depends_on:
+      - postgres
+    env_file:
+      - ./api/.env
+
+  postgres:
+    image: postgres:11.4
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./schema:/docker-entrypoint-initdb.d
+    environment:
+      - POSTGRES_DB=mobile
+      - POSTGRES_USER=mobile
+      - POSTGRES_PASSWORD=mobile
