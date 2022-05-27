@@ -1,0 +1,21 @@
+<element name='signUP' src='./signUP/signUP.hml'></element>
+
+<!-- index.hml -->
+<div class="container">
+    <div class="login-container">
+        <text class="title">Login</text>
+        <input class="login-input" headericon="/common/images/login.png" type="text" name="Pseudo" placeholder="Your pseudo">
+            Pseudo
+        </input>
+        <input class="login-input" headericon="/common/images/padlock.png" type="password" name="Password" placeholder="Your password">
+            Password
+        </input>
+        <button type="capsule" value="Login" class="login-button" onclick="launch"></button>
+        <button class="register-button" type="text" onclick="showPanel">Not yet Registered ?</button>
+
+        <dialog id="simplepanel">
+            <signUP></signUP>
+        </dialog>
+    </div>
+
+</div>
