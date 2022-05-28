@@ -3,9 +3,9 @@ export default {
     props: ['compProp'],
     data: {
         menus:[
-        {"text":"Profile","img1":"../../i18n/user.png", "route": 'pages/index/default/default'},
-        {"text":"Weather","img1":"../../images/cloudy.png", "route": 'pages/index/weather/weather'},
-        {"text":"News","img1":"../../../default/common/images/news-report.png", "route": 'pages/index/news/news'},
+        {"text":"Profile","img":'./common/images/user.png', "route": 'pages/index/default/default'},
+        {"text":"Weather","img":"./common/images/cloudy.png", "route": 'pages/index/weather/weather'},
+        {"text":"News","img":"./common/images/news-report.png", "route": 'pages/index/news/news'},
         ],
         Pindex:0
     },

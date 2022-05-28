@@ -1,9 +1,17 @@
 <element name='NavBar' src='../../../../NavBar/pages/index/index.hml'></element>
 <div class="container">
-    <text class="title">
-        Weather
-    </text>
-    <text class="title">{{pageIndex}}</text>
+    <div class="samll-container">
+        <input class="search-input" type="text" name="search" placeholder="Country ...">
+        </input>
+        <swiper class="swiper" id="swiper" index="0" indicator="true" loop="false" digital="false" cachedsize="-1"
+                scrolleffect="fade">
+            <block for="{{fakeData}}">
+                <div class="swiperContent" >
+                    <text class = "text">{{$item.text}}</text>
+                </div>
+            </block>
+        </swiper>
+    </div>
     <NavBar comp-prop="{{pageIndex}}">
     </NavBar>
 </div>

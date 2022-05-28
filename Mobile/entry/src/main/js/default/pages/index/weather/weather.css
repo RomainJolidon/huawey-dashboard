@@ -8,9 +8,25 @@
     height: 454px;
 }
 
-.title {
-    font-size: 30px;
-    text-align: center;
-    width: 200px;
-    height: 100px;
+.search-input {
+    margin: 10%;
+}
+
+.samll-container {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+
+    flex-direction: column;
+}
+
+.swiper {
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+}
+
+.swiperContent{
+    background-color: lightblue;
+    height: 100%;
 }

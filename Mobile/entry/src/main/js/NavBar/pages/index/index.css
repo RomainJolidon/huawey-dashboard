@@ -1,11 +1,11 @@
 
 .bottomview{
     width: 100%;
-    height: 200px;
+    height: 10%;
     position: fixed;
     bottom: 0px;
     left: 0px;
-    background-color: #7ACEB6;
+    background: linear-gradient(to left, #62F0F0#7F08F7AA);
     display: flex;
     justify-content: space-around ;
 
@@ -20,8 +20,8 @@
 
 }
 .imges{
-    width: 80%;
-    height: 60%;
+    width: 30%;
+    height: 50%;
 
 }
 .text{
@@ -33,11 +33,11 @@
 }
 .a{
     color: red;
-    font-size: 35px;
+    font-size: 15px;
     font-weight: bold;
 }
 .b{
-    font-size: 35px;
+    font-size: 15px;
     color: grey;
     font-weight: bold;
 }
