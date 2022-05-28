@@ -1,10 +1,9 @@
 <div class="first">
-    <text class="title-style">{{compProp}}</text>
     <div class="bottomview">
         <block for="{{menus}}">
             <div class="content" onclick="changecontent({{$idx}})">
                 <div class="imges">
-                    <image src="{{$item.img1}}">
+                    <image src="{{$item.img}}">
                     </image>
                 </div>
                 <div class="text">
