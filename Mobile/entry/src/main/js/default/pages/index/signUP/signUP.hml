@@ -1,0 +1,15 @@
+<div class="container">
+    <div class="login-container">
+        <text class="title">Register</text>
+        <input class="login-input" headericon="/common/images/login.png" type="text" name="Pseudo" placeholder="Your pseudo">
+            Pseudo
+        </input>
+        <input class="login-input" headericon="/common/images/email.png" type="email" name="Email" placeholder="Your email address">
+            Email
+        </input>
+        <input class="login-input" headericon="/common/images/padlock.png" type="password" name="Password">
+            Password
+        </input>
+        <button type="capsule" value="Create Account" class="login-button" onclick="launch"></button>
+    </div>
+</div>

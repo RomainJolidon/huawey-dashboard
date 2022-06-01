@@ -1,0 +1,17 @@
+<div class="first">
+    <div class="bottomview">
+        <block for="{{menus}}">
+            <div class="content" onclick="changecontent({{$idx}})">
+                <div class="imges">
+                    <image src="{{$item.img}}">
+                    </image>
+                </div>
+                <div class="text">
+                    <text class="{{Pindex==$idx?'a':'b'}}">
+                        {{$item.text}}
+                    </text>
+                </div>
+            </div>
+        </block>
+    </div>
+</div>

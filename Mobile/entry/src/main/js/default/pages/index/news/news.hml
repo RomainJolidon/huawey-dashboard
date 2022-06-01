@@ -1,0 +1,10 @@
+<element name='NavBar' src='../../../../NavBar/pages/index/index.hml'></element>
+<div class="container">
+    <text class="title">
+        News
+    </text>
+    <text class="title">{{pageIndex}}</text>
+    <NavBar comp-prop="{{pageIndex}}">
+    </NavBar>
+</div>
+

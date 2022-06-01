@@ -1,0 +1,32 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    left: 0px;
+    top: 0px;
+    width: 454px;
+    height: 454px;
+}
+
+.search-input {
+    margin: 10%;
+}
+
+.samll-container {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+
+    flex-direction: column;
+}
+
+.swiper {
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+}
+
+.swiperContent{
+    background-color: lightblue;
+    height: 100%;
+}
