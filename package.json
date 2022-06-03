@@ -1,6 +1,0 @@
-{
-  "dependencies": {
-    "express-context-store": "^0.3.2",
-    "jsonwebtoken": "^8.5.1"
-  }
-}

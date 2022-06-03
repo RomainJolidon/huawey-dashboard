@@ -4,7 +4,7 @@ services:
   api:
     build: ./api
     ports:
-      - 4242:4242
+      - "3000:3000"
     depends_on:
       - postgres
     env_file:
@@ -20,3 +20,17 @@ services:
       - POSTGRES_DB=mobile
       - POSTGRES_USER=mobile
       - POSTGRES_PASSWORD=mobile
+
+  ngrok:
+    image: wernight/ngrok
+    ports:
+      - "4242:4242"
+    command:
+      - /bin/sh
+      - -c
+      - |
+        ngrok http api:3000
+    volumes:
+      - .:/home/ngrok/.ngrok2/
+    depends_on:
+      - api
