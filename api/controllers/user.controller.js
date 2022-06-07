@@ -4,12 +4,15 @@ const db = require('./database.controller').db;
 class UserController {
 
     static create(userId, theme) {
-        return new Promise((resolve, reject) => db.query('INSERT INTO user_preferences (user_id) VALUES ($1);', [userId], (error, res) => {
+        return new Promise((resolve, reject) => db.query('INSERT INTO user_preferences (user_id) VALUES ($1) RETURNING *;', [userId], (error, res) => {
             if (error) {
                 reject(error);
                 return
+            }else if (!res || res.rows.length !== 1) {
+                reject(new Error('User not created'));
+                return
             }
-            resolve();
+            resolve(new UserModel().fromJson(res.rows[0]));
         }));
     }
 

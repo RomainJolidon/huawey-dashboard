@@ -22,7 +22,7 @@ router.post('/login', function(req, res, next) {
   const {email, password} = req.body;
   AuthController.getByEmail(email).then(user => {
     if (!bcrypt.compareSync(password, user.password)) {
-      res.status(404).send('Failed to login');
+      res.status(404).json({message: 'Failed to login'});
       return
     }
     res.status(200).send(createSession(user));
@@ -35,8 +35,8 @@ router.post('/register', function(req, res, next) {
 
   const hash = bcrypt.hashSync(password, parseInt(process.env.BCRYPT_KEY));
   AuthController.create(name, email, hash).then(userId => {
-    UserController.create(userId).then(() => {
-      res.status(201).send("Successfully created user");
+    UserController.create(userId).then((user) => {
+      res.status(201).send(createSession(user));
     }).catch(err => res.status(500).send(err));
   }).catch(err => res.status(500).send(err));
 });
