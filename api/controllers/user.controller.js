@@ -8,11 +8,8 @@ class UserController {
             if (error) {
                 reject(error);
                 return
-            }else if (!res || res.rows.length !== 1) {
-                reject(new Error('User not created'));
-                return
             }
-            resolve(new UserModel().fromJson(res.rows[0]));
+            resolve();
         }));
     }
 

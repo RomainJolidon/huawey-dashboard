@@ -4,7 +4,7 @@ const db = require('./database.controller').db;
 class AuthController {
 
     static create(name, email, password) {
-        return new Promise((resolve, reject) => db.query('INSERT INTO users (name, email, password) VALUES ($1, $2, $3) RETURNING id;', [name, email, password], (error, res) => {
+        return new Promise((resolve, reject) => db.query('INSERT INTO users (name, email, password) VALUES ($1, $2, $3) RETURNING *;', [name, email, password], (error, res) => {
             if (error) {
                 reject(error);
                 return
@@ -12,7 +12,7 @@ class AuthController {
                 reject(new Error('User not found'));
                 return
             }
-            resolve(res.rows[0].id);
+            resolve(new UserModel().fromJson(res.rows[0]));
         }));
     }
 
