@@ -7,7 +7,7 @@ class WeatherController {
             if (error) {
                 reject(error);
                 return
-            } else if (!cityName) {
+            } else if (cityName === "") {
                 reject(new Error("City can't be empty"));
                 return
             }
