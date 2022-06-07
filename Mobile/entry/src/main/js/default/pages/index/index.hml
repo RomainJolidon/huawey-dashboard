@@ -4,9 +4,9 @@
 <div class="container">
     <div class="login-container">
         <text class="title">Login</text>
-        <input class="login-input" headericon="/common/images/login.png" type="text" name="Pseudo" placeholder="Your pseudo">
+        <input class="login-input" headericon="/common/images/login.png" type="text" name="Pseudo" placeholder="Your pseudo" onchange="getLoginName">
         </input>
-        <input class="login-input" headericon="/common/images/padlock.png" type="password" name="Password" placeholder="Your password">
+        <input class="login-input" headericon="/common/images/padlock.png" type="password" name="Password" placeholder="Your password" onchange="getLoginPassword">
         </input>
         <button type="capsule" value="Login" class="login-button" onclick="launch"></button>
         <button class="register-button" type="text" onclick="showPanel">Not yet Registered ?</button>
