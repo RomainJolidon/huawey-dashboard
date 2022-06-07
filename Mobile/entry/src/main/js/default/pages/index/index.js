@@ -2,7 +2,7 @@ import router from '@system.router';
 import fetch from '@system.fetch';
 export default {
     data: {
-        loginName: "",
+        loginEmail: "",
         loginPassword: "",
 
     },
@@ -14,11 +14,11 @@ export default {
     launch() {
 
         const dataFromUser = {
-            "name": this.loginName,
+            "email": this.loginEmail,
             "password": this.loginPassword
         };
         fetch.fetch({
-            url:'https://d559-88-166-52-147.ngrok.io/user/login',
+            url:'https://9d5f-88-166-52-147.ngrok.io/user/login',
             data: dataFromUser,
             method:'POST',
             header:{
@@ -28,20 +28,19 @@ export default {
             success(response){
                 console.log(typeof response.data)
                 console.log('getListData fetch success:' + JSON.stringify(response))
-
-            },
-            fail(data,code){
-                if (data.code == 200)
+                console.log(response.data);
+                if (response.code == 200)
                 {
                     console.log('create user');
-                    console.log('getListData fetch success:' + JSON.stringify(code) + JSON.stringify(data))
-                    /*router.push ({
+                    router.push ({
                         uri: 'pages/index/default/default',
                         params: {
-                            data:{pageIndex : 0}
+                            userJWT: response.data
                         }
-                    });*/
+                    });
                 }
+            },
+            fail(data,code){
                 console.log('getListData fetch fail:' + JSON.stringify(code) + JSON.stringify(data))
             },
             complete(...args){
@@ -56,10 +55,9 @@ export default {
 
     closePanel() {
         this.$element('simplepanel').close()
-        console.log(this.data.value);
     },
-    getLoginName(e) {
-        this.loginName = e.value;
+    getLoginEmail(e) {
+        this.loginEmail = e.value;
     },
     getLoginPassword(e) {
         this.loginPassword = e.value;

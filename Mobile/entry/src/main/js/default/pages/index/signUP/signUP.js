@@ -16,30 +16,27 @@ export default {
         };
 
         fetch.fetch({
-            url:'https://d559-88-166-52-147.ngrok.io/user/register',
+            url:'https://9d5f-88-166-52-147.ngrok.io/user/register',
             data: dataFromUser,
             method:'POST',
             header:{
                 'content-type':'application/json'
             },
-            responseType:'json',
             success(response){
                 console.log(typeof response.data)
                 console.log('getListData fetch success:' + JSON.stringify(response))
-
-            },
-            fail(data,code){
-                if (data.code == 201)
+                if (response.code == 200)
                 {
                     console.log('create user');
-                    console.log('getListData fetch success:' + JSON.stringify(code) + JSON.stringify(data))
-                    /*router.push ({
+                    router.push ({
                         uri: 'pages/index/default/default',
                         params: {
-                            data:{pageIndex : 0}
+                            userJWT: response.data
                         }
-                    });*/
+                    });
                 }
+            },
+            fail(data,code){
                 console.log('getListData fetch fail:' + JSON.stringify(code) + JSON.stringify(data))
             },
             complete(...args){
