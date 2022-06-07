@@ -4,6 +4,7 @@ const UserController = require("../controllers/user.controller");
 const router = express.Router();
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
+const {UserExists} = require("./utils");
 
 function createSession(user) {
   return jwt.sign({
@@ -34,26 +35,15 @@ router.post('/register', function(req, res, next) {
   const {name, email, password} = req.body;
 
   const hash = bcrypt.hashSync(password, parseInt(process.env.BCRYPT_KEY));
-  AuthController.create(name, email, hash).then(userId => {
-    UserController.create(userId).then((user) => {
+  AuthController.create(name, email, hash).then(user => {
+    UserController.create(user.id).then(() => {
       res.status(201).send(createSession(user));
     }).catch(err => res.status(500).send(err));
   }).catch(err => res.status(500).send(err));
 });
 
 /* GET my user */
-router.use('/me', function(req, res, next) {
-  const bearerToken = req.headers.authorization;
-  const token = !!bearerToken ? bearerToken.split(' ')[1] : null;
-
-  const decoded = jwt.verify(token, process.env.JWT_KEY);
-  const userId = decoded.id;
-
-  AuthController.getByUserId(userId).then(user => {
-    req.context.set('user', user)
-    next();
-  }).catch(err => res.status(404).send(err));
-});
+router.use('/me', UserExists);
 router.get('/me', function(req, res, next) {
   const user = req.context.get('user')
   res.json({
