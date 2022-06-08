@@ -9,14 +9,12 @@
 }
 
 .search-input {
-    margin: 10%;
+    margin: 60%;
 }
 
 .samll-container {
     display: flex;
-    justify-content: center;
     align-content: center;
-
     flex-direction: column;
 }
 

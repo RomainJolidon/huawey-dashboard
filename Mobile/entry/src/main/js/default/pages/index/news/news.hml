@@ -1,9 +1,27 @@
 <element name='NavBar' src='../../../../NavBar/pages/index/index.hml'></element>
 <div class="container">
-    <text class="title">
-        News
-    </text>
-    <text class="title">{{pageIndex}}</text>
+    <div class="samll-container">
+        <input class="search-input" type="text" name="search" placeholder="Country ..." onchange="getSearchInput">
+        </input>
+        <list class="news-list">
+            <list-item for="{{articles}}">
+                <div id="card-container">
+                    <text id="product-title">{{$item.title}}</text>
+                    <div id="card">
+                        <div id="product-head">
+                            <image class="product-image" src="../../../common/images/user.png">
+                            </image>
+                        </div>
+                        <div class="product-details">
+                            <text id="product-text">
+                                {{$item.content}}
+                            </text>
+                        </div>
+                    </div>
+                </div>
+            </list-item>
+        </list>
+    </div>
     <NavBar comp-prop="{{pageIndex}}">
     </NavBar>
 </div>
