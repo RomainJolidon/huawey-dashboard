@@ -1,12 +1,13 @@
 import router from '@system.router';
 import fetch from '@system.fetch';
-import * as storage from './storage.js';
+import storage from '@system.storage';
+//import * as storage from './storage.js';
 
 export default {
     data: {
         loginEmail: "",
         loginPassword: "",
-
+        ErrorMsg: ""
     },
 
     onHide() {
@@ -14,13 +15,14 @@ export default {
     },
 
     launch() {
-
-        const dataFromUser = {
+        let dataFromUser = {
             "email": this.loginEmail,
             "password": this.loginPassword
         };
+
+        console.log(this.$r('strings.apiURL'));
         fetch.fetch({
-            url:'https://9d5f-88-166-52-147.ngrok.io/user/login',
+            url: this.$r('strings.apiURL') + 'user/login',
             data: dataFromUser,
             method:'POST',
             header:{
@@ -34,16 +36,20 @@ export default {
                 if (response.code == 200)
                 {
                     console.log('create user');
+                    storage.set({
+                        key: "userJWT",
+                        value: response.data
+                    });
                     router.push ({
                         uri: 'pages/index/default/default',
                         params: {
                             userJWT: response.data
                         }
                     });
-                    storage.default.setStorage("user", response.data);
                 }
             },
             fail(data,code){
+                this.ErrorMsg = "your email or password is incorrect";
                 console.log('getListData fetch fail:' + JSON.stringify(code) + JSON.stringify(data))
             },
             complete(...args){

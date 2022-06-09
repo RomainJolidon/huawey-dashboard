@@ -1,17 +1,52 @@
 <element name='NavBar' src='../../../../NavBar/pages/index/index.hml'></element>
 <div class="container">
-    <div class="samll-container">
-        <input class="search-input" type="text" name="search" placeholder="Country ...">
-        </input>
-        <swiper class="swiper" id="swiper" index="0" indicator="true" loop="false" digital="false" cachedsize="-1"
-                scrolleffect="fade">
-            <block for="{{fakeData}}">
-                <div class="swiperContent" >
-                    <text class = "text">{{$item.text}}</text>
-                </div>
-            </block>
-        </swiper>
-    </div>
+    <list class="news-list">
+       <list-item for="{{WeatherCity}}">
+            <div class="small-container">
+                <swiper class="swiper" id="swiper" index="0" indicator="true" loop="false" digital="false" cachedsize="-1"
+                        scrolleffect="fade">
+                    <div class="swiperContent">
+                        <div class="weatherInfo">
+                            <text class="text">{{$item.City}}</text>
+                            <text class="text" style="font-size: 50px;">{{$item.Temp}}</text>
+                        </div>
+                        <div class="weatherIMG">
+                            <image class="weatherLogo" src="{{$item.Icon}}"></image>
+                            <text class="text">{{$item.Description}}</text>
+                        </div>
+                    </div>
+                    <div class="swiperContent">
+                        <text class="text">Max temp: {{$item.Max_temp}}</text>
+                        <text class="text">Min temp: {{$item.Min_temp}}</text>
+                        <text class="text">Feel like: {{$item.Feel_temp}}</text>
+                    </div>
+                    <div class="swiperContent">
+                        <div>
+                            <text class="text">Sunrise: {{$item.SunRise}}</text>
+                        </div>
+                        <div>
+                            <text class="text">Sunset: {{$item.SunSet}}</text>
+                        </div>
+                    </div>
+                </swiper>
+            </div>
+        </list-item>
+    </list>
+    <dialog id="simplepanel">
+        <div class="newsPanel">
+            <div class="panel-input">
+                <text class="product-text">
+                    City
+                </text>
+                <input placeholder="City" onchange="getCityName">
+                </input>
+                <image id="addBTN" src="../../../common/images/plus.png" onclick="addCity"></image>
+            </div>
+        </div>
+    </dialog>
+    <button class="addBtn" onclick="showPanel">
+        Add city
+    </button>
     <NavBar comp-prop="{{pageIndex}}">
     </NavBar>
 </div>

@@ -1,20 +1,20 @@
 <element name='NavBar' src='../../../../NavBar/pages/index/index.hml'></element>
 <div class="container">
     <div class="samll-container">
-        <input class="search-input" type="text" name="search" placeholder="Country ..." onchange="getSearchInput">
+        <input class="search-input" type="text" name="search" placeholder="Keywords" onchange="getSearchInput">
         </input>
         <list class="news-list">
             <list-item for="{{articles}}">
-                <div id="card-container">
-                    <text id="product-title">{{$item.title}}</text>
+                <div id="card-container" onclick="showPanel({{$idx}})">
+                    <text class="product-title">{{$item.title}}</text>
                     <div id="card">
                         <div id="product-head">
-                            <image class="product-image" src="../../../common/images/user.png">
+                            <image class="product-image" src="{{$item.urlToImage}}">
                             </image>
                         </div>
                         <div class="product-details">
-                            <text id="product-text">
-                                {{$item.content}}
+                            <text class="product-text">
+                                {{$item.description}}
                             </text>
                         </div>
                     </div>
@@ -22,6 +22,16 @@
             </list-item>
         </list>
     </div>
+    <dialog id="simplepanel">
+        <div class="newsPanel">
+            <text class="product-title-bis">
+                {{articles[clickedIdx].title}}
+            </text>
+            <text class="product-text">
+                {{articles[clickedIdx].content}}
+            </text>
+        </div>
+    </dialog>
     <NavBar comp-prop="{{pageIndex}}">
     </NavBar>
 </div>

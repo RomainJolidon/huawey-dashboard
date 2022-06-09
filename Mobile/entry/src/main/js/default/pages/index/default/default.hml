@@ -8,7 +8,7 @@
         <text>John Doe</text>
         <text class="email">gneugneu@gmail.com</text>
     </div>
-    <button type="capsule" value="Go back" class="button" onclick="launch"></button>
+    <button type="capsule" value="Disconnect" class="button" onclick="launch"></button>
     <NavBar comp-prop="{{pageIndex}}">
     </NavBar>
 </div>

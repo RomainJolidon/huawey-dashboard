@@ -1,8 +1,10 @@
 import router from '@system.router';
 import fetch from '@system.fetch';
+import * as storage from '../storage.js';
 
 export default {
     data: {
+        ErrorMsg: "",
         RegisterName: "",
         RegisterPassword: "",
         RegisterEmail: "",
@@ -16,7 +18,7 @@ export default {
         };
 
         fetch.fetch({
-            url:'https://9d5f-88-166-52-147.ngrok.io/user/register',
+            url: this.$r('strings.apiURL') + 'user/register',
             data: dataFromUser,
             method:'POST',
             header:{
@@ -28,6 +30,7 @@ export default {
                 if (response.code == 200)
                 {
                     console.log('create user');
+                    storage.default.setStorage("user", response.data);
                     router.push ({
                         uri: 'pages/index/default/default',
                         params: {
@@ -37,6 +40,7 @@ export default {
                 }
             },
             fail(data,code){
+                this.ErrorMsg = "Error try again";
                 console.log('getListData fetch fail:' + JSON.stringify(code) + JSON.stringify(data))
             },
             complete(...args){
