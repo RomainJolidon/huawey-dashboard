@@ -35,8 +35,8 @@ router.post('/register', function(req, res, next) {
   const {name, email, password} = req.body;
 
   const hash = bcrypt.hashSync(password, parseInt(process.env.BCRYPT_KEY));
-  AuthController.create(name, email, hash).then(userId => {
-    UserController.create(userId).then((user) => {
+  AuthController.create(name, email, hash).then(user => {
+    UserController.create(user.id).then(() => {
       res.status(200).send(createSession(user));
     }).catch(err => res.status(500).send(err));
   }).catch(err => res.status(500).send(err));

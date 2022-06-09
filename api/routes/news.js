@@ -13,7 +13,7 @@ router.get('/', function(req, res, next) {
             res.status(500).json({message: "failed to get news from country"})
             return;
         }
-        res.status(200).json(data);
+        res.status(200).json(data.articles);
     })
 });
 
