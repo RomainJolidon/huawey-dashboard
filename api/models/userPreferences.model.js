@@ -3,7 +3,7 @@ const Serializable = require('./serializable.model');
 class UserPreferencesModel extends Serializable {
     constructor() {
         super();
-        this.theme = '';
+        this.city = 'Paris';
     }
 }
 

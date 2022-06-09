@@ -17,6 +17,7 @@
     "jsonwebtoken": "^8.5.1",
     "morgan": "~1.9.1",
     "newsapi": "^2.4.1",
+    "openweather-apis": "^4.4.2",
     "pg": "^8.7.3",
     "pug": "2.0.0-beta11"
   },

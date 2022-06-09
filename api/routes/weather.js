@@ -2,6 +2,7 @@ const express = require('express');
 const WeatherController = require("../controllers/weather.controller");
 const router = express.Router();
 const jwt = require('jsonwebtoken');
+const {UserExists} = require("./utils");
 
 // router.use('/weather', function(req, res, next) {
 //     const bearerToken = req.headers.authorization;
@@ -16,8 +17,12 @@ const jwt = require('jsonwebtoken');
 //     }).catch(err => res.status(404).send(err));
 //   });
 
+router.use('/', UserExists);
 router.get('/', function(req, res, next) {
-    res.send('respond with a wololo');
+    const user = req.context.get('user');
+    WeatherController.getWeather(user.id).then((weatherData) => {
+        res.status(200).json(weatherData);
+    }).catch(err => res.status(500).json({message: err}));
   });
 
 router.post('/setCity', function(req, res, next){
