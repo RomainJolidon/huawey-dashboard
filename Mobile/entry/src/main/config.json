@@ -7,8 +7,36 @@
       "name": "1.0.0"
     }
   },
-  "deviceConfig": {},
+  "deviceConfig": {
+    "default": {
+      "network": {
+        "cleartextTraffic": true,
+        "securityConfig": {
+          "domainSettings": {
+            "cleartextPermitted": true,
+            "domains": [
+              {
+                "subdomains": true,
+                "name": "https://9d5f-88-166-52-147.ngrok.io"
+              }
+            ]
+          }
+        }
+      }
+    }
+  },
   "module": {
+    "reqPermissions": [
+      {
+        "name": "ohos.permission.GET_NETWORK_INFO"
+      },
+      {
+        "name": "ohos.permission.SET_NETWORK_INFO"
+      },
+      {
+        "name": "ohos.permission.INTERNET"
+      }
+    ],
     "package": "com.example.huawei_dashboard_mobile",
     "name": ".MyApplication",
     "mainAbility": "com.example.huawei_dashboard_mobile.MainAbility",

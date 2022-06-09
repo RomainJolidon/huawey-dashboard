@@ -3,19 +3,22 @@ import fetch from '@system.fetch';
 import * as storage from './storage.js';
 
 export default {
+    data: {
+        loginEmail: "",
+        loginPassword: "",
+
+    },
+
     onHide() {
         this.closePanel();
     },
+
     launch() {
 
         const dataFromUser = {
             "email": this.loginEmail,
             "password": this.loginPassword
         };
-        router.push ({
-            uri: 'pages/index/default/default',
-
-        });
         fetch.fetch({
             url:'https://9d5f-88-166-52-147.ngrok.io/user/login',
             data: dataFromUser,
@@ -47,15 +50,19 @@ export default {
                 console.log('getListData fetch complete:' + JSON.stringify(args))
             }
         });
-        console.log("here");
     },
+
     showPanel() {
         this.$element('simplepanel').show()
     },
+
     closePanel() {
         this.$element('simplepanel').close()
     },
-    changeMode(e) {
-        this.modeFlag = e.mode
-    }
+    getLoginEmail(e) {
+        this.loginEmail = e.value;
+    },
+    getLoginPassword(e) {
+        this.loginPassword = e.value;
+    },
 }
