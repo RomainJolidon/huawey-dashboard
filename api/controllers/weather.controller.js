@@ -1,7 +1,6 @@
 const db = require('./database.controller').db;
 const weather = require('openweather-apis');
 
-console.log(process.env.WEATHER_API_KEY)
 weather.setAPPID(process.env.WEATHER_API_KEY);
 weather.setLang('en')
 
