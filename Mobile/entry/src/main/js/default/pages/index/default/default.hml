@@ -5,8 +5,8 @@
     <div class="card">
         <image src="../../../common/images/user.png" style="width: 50%;">
         </image>
-        <text>John Doe</text>
-        <text class="email">gneugneu@gmail.com</text>
+        <text>{{name}}</text>
+        <text class="email">{{email}}</text>
     </div>
     <button type="capsule" value="Disconnect" class="button" onclick="launch"></button>
     <NavBar comp-prop="{{pageIndex}}">

@@ -7,17 +7,7 @@ export default {
         pageIndex: 1,
         WeatherCity:
         [
-            {
-                "City": "London",
-                "Temp": 22.64,
-                "Icon": "http://openweathermap.org/img/w/"+"01d"+".png",
-                "Description": "Clear",
-                "Max_temp": 26.77,
-                "Min_temp": 18.17,
-                "Feel_temp": 21.06,
-                "SunRise": new Date(1654746469).getHours(),
-                "SunSet": new Date(1654804324).getHours(),
-            }
+
         ],
         weather: {
             "coord": {
@@ -83,7 +73,7 @@ export default {
     addCity() {
         var that = this;
         //todo test the api call
-        /*storage.get({
+        storage.get({
             key: "userJWT",
             success: data => {
                 if (data) {
@@ -115,7 +105,9 @@ export default {
                                     "SunRise": new Date(weather.sys.sunrise).getHours(),
                                     "SunSet": new Date(weather.sys.sunset).getHours(),
                                 }
+                                console.log(toAdd.Icon);
                                 that.WeatherCity.push(toAdd);
+                                that.closePanel();
                             }
                         },
                         fail(data,code){
@@ -128,8 +120,8 @@ export default {
                     });
                 }
             }
-        });*/
-        var toAdd = {
+        });
+        /*var toAdd = {
             "City": that.weather.name,
             "Temp": that.weather.main.temp,
             "Icon": "http://openweathermap.org/img/w/"+that.weather.weather[0].icon+".png",
@@ -141,7 +133,7 @@ export default {
             "SunSet": new Date(that.weather.sys.sunset).getHours(),
         }
         that.WeatherCity.push(toAdd);
-        this.closePanel();
+        this.closePanel();*/
     }
 
 }

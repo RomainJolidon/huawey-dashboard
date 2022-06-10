@@ -15,42 +15,38 @@ export default {
         router.back({uri:'pages/index'});
     },
     onInit(){
-        const jwt = this.userJWT;
-
-        console.info(this.pageIndex);
-        console.log(this.pageIndex);
-        console.log(jwt);
+        var that = this;
         storage.get({
             key: "userJWT",
             success: data => {
-                console.log(data);
                 if (data) {
-                    console.log("hello");
-                    console.log(data);
+                    fetch.fetch({
+                        url: this.$r('strings.apiURL') + 'user/me',
+                        method:'GET',
+                        header:{
+                            'Authorization': `Bearer ${data}`,
+                            'content-type':'application/json'
+                        },
+                        responseType:'json',
+                        success(response){
+                            console.log(typeof response.data)
+                            console.log('getListData fetch success:' + JSON.stringify(response))
+                            var result = JSON.parse(response.data);
+                            that.name = result.name;
+                            that.email = result.email;
+
+                        },
+                        fail(data,code){
+                            console.log("JWT expired log out")
+                            console.log('getListData fetch fail:' + JSON.stringify(code) + JSON.stringify(data))
+                        },
+                        complete(...args){
+                            console.log('getListData fetch complete:' + JSON.stringify(args))
+                        }
+                    });
                 }
             }
         })
-        //storage.default.getStorage("user");
-        fetch.fetch({
-            url: this.$r('strings.apiURL') + 'user/me',
-            method:'GET',
-            header:{
-                'Authorization': `Bearer ${jwt}`,
-                'content-type':'application/json'
-            },
-            responseType:'json',
-            success(response){
-                console.log(typeof response.data)
-                console.log('getListData fetch success:' + JSON.stringify(response))
 
-            },
-            fail(data,code){
-                console.log("JWT expired log out")
-                console.log('getListData fetch fail:' + JSON.stringify(code) + JSON.stringify(data))
-            },
-            complete(...args){
-                console.log('getListData fetch complete:' + JSON.stringify(args))
-            }
-        });
     }
 }

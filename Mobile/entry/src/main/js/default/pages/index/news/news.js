@@ -79,6 +79,7 @@ export default {
                             if (response.code == 200)
                             {
                                 that.articles = JSON.parse(response.data);
+                                console.log(that.articles);
                                 //that.$set("articles", JSON.parse(response.data));
                             }
                         },
