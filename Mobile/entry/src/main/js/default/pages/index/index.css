@@ -8,25 +8,25 @@
 
 .title {
     font-size: 50px;
-    margin-bottom: 15%;
+    margin-bottom: 40px;
+    margin-top: 20px;
     color: black;
 }
 
 .login-container {
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     background-color: aliceblue;
-    height: 60%;
+    height: 450px;
     border-radius: 30px;
 }
 
 .login-input {
     width: 90%;
-    padding: 10%;
-    font-size: 15px;
+    font-size: 20px;
     margin: 1%;
-    height: 50px;
+    height: 45px;
 }
 
 .login-button {
@@ -35,7 +35,6 @@
     color: white;
     font-family: "Raleway SemiBold", sans-serif;
     height: 42.3px;
-    margin: 10%;
     width: 153px;
 }
 
