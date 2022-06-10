@@ -25,9 +25,10 @@ router.get('/', function(req, res, next) {
     }).catch(err => res.status(500).json({message: err}));
   });
 
-router.post('/setCity', function(req, res, next){
-    const cityName = req.body;
-    WeatherController.setCity(cityName).then(() => {
+router.post('/', function(req, res, next){
+    const {cities} = req.body;
+    const user = req.context.get('user');
+    WeatherController.setCities(cities, user.id).then(() => {
         res.status(200).send("Successfully changed city name");
     }).catch(err => res.status(500).send(err));
 });

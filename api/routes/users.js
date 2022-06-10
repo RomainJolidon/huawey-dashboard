@@ -36,7 +36,7 @@ router.post('/register', function(req, res, next) {
 
   const hash = bcrypt.hashSync(password, parseInt(process.env.BCRYPT_KEY));
   AuthController.create(name, email, hash).then(user => {
-    UserController.create(user.id).then(() => {
+    UserController.createPreferences(user.id).then(() => {
       res.status(200).send(createSession(user));
     }).catch(err => res.status(500).send(err));
   }).catch(err => res.status(500).send(err));
@@ -46,11 +46,15 @@ router.post('/register', function(req, res, next) {
 router.use('/me', UserExists);
 router.get('/me', function(req, res, next) {
   const user = req.context.get('user')
-  res.json({
-    id: user.id,
-    name: user.name,
-    email: user.email
-  });
+
+  UserController.getPreferencesById(user.id).then(data => {
+    res.json({
+      id: user.id,
+      name: user.name,
+      email: user.email,
+      settings: data
+    });
+  }).catch(err => res.status(500).send(err));
 });
 
 module.exports = router;

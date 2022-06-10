@@ -3,7 +3,7 @@ const db = require('./database.controller').db;
 
 class UserController {
 
-    static create(userId, theme) {
+    static createPreferences(userId, theme) {
         return new Promise((resolve, reject) => db.query('INSERT INTO user_preferences (user_id) VALUES ($1) RETURNING *;', [userId], (error, res) => {
             if (error) {
                 reject(error);
@@ -13,7 +13,7 @@ class UserController {
         }));
     }
 
-    static getById(userId) {
+    static getPreferencesById(userId) {
         return new Promise((resolve, reject) => db.query('SELECT * FROM user_preferences WHERE user_id = $1;', [userId], (error, res) => {
             if (error) {
                 reject(error);
