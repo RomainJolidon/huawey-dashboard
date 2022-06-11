@@ -3,6 +3,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    height: 88%;
 }
 
 .small-container {
@@ -33,7 +34,7 @@
 .addBtn{
     position: absolute;
     left: 70%;
-    top: 85%;
+    top: 70%;
     border-radius: 21px;
     color: white;
     font-family: "Raleway SemiBold", sans-serif;

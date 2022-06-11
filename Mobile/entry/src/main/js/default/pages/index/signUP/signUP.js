@@ -1,6 +1,7 @@
 import router from '@system.router';
 import fetch from '@system.fetch';
-import * as storage from '../storage.js';
+import storage from '@system.storage';
+//import * as storage from '../storage.js';
 
 export default {
     data: {
@@ -30,7 +31,10 @@ export default {
                 if (response.code == 200)
                 {
                     console.log('create user');
-                    storage.default.setStorage("user", response.data);
+                    storage.set({
+                        key: "userJWT",
+                        value: response.data
+                    });
                     router.push ({
                         uri: 'pages/index/default/default',
                         params: {

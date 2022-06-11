@@ -87,6 +87,13 @@ export default {
                             if (response.code == 200)
                             {
                                 var weather = JSON.parse(response.data);
+                                weather.map(data => {
+                                    data.sunrise = new Date(data.sunrise*1000).toLocaleTimeString();
+                                    data.sunset = new Date(data.sunset*1000).toLocaleTimeString();
+                                    data.icon = data.icon.toString();
+                                    console.log(typeof data.icon);
+                                    console.log(data.icon);
+                                });
                                 that.WeatherCity = weather;
                                 that.closePanel();
                             }

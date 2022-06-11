@@ -1,8 +1,8 @@
 {
   "string": [
     {
-      "name": "entry_MainAbility",
-      "value": "entry_MainAbility"
+      "name": "name",
+      "value": "morningly"
     },
     {
       "name": "mainability_description",
@@ -10,7 +10,7 @@
     },
     {
       "name": "apiURL",
-      "value": "https://256d-88-166-52-147.ngrok.io"
+      "value": "https://071d-88-166-52-147.ngrok.io"
     }
   ]
 }

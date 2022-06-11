@@ -2,8 +2,7 @@
 import router from '@system.router';
 import fetch from '@system.fetch';
 import storage from '@system.storage';
-
-//import * as storage from '../storage.js';
+import app from '@system.app'
 
 export default {
     data: {
@@ -12,7 +11,7 @@ export default {
         email: ""
     },
     launch() {
-        router.back({uri:'pages/index'});
+        app.terminate();
     },
     onInit(){
         var that = this;
@@ -37,7 +36,7 @@ export default {
 
                         },
                         fail(data,code){
-                            console.log("JWT expired log out")
+                            console.log("JWT expired log out ")
                             console.log('getListData fetch fail:' + JSON.stringify(code) + JSON.stringify(data))
                         },
                         complete(...args){
