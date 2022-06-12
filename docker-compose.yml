@@ -9,9 +9,6 @@ services:
       - postgres
     env_file:
       - ./api/.env
-    volumes:
-      - ./api/:/usr/src/app
-      - nodemodules:/usr/src/app/node_modules/
 
   postgres:
     image: postgres:11.4
@@ -37,6 +34,3 @@ services:
       - .:/home/ngrok/.ngrok2/
     depends_on:
       - api
-
-volumes:
-  nodemodules: {}
