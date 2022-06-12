@@ -54,16 +54,3 @@ Software:
 2. HarmonyOS 2.0.0 (API level 4) or later
 3. HUAWEI DevEco Studio
 4. JDK version: 1.8 or later
-
-## Operation Result
-After running the app, you will see the following screen.
-
-<img src="screenshot/screen_0.png" height="534" width="300" style="max-width: 100%;">
-
-Tap **TRUE** or **FALSE** to answer the question; tap **NEXT** to go to the next question; tap **POST SCORE** to record the obtained score. All information will be uploaded to the console of Analytics Kit. You can use DebugView to view the information in real time.
-
-Tap **SETTINGS**, and you will see the following screen.
-
-<img src="screenshot/screen_1.png" height="534" width="300" style="max-width: 100%;">
-
-On the screen displayed, you can set your favorite sport. Your configuration will be recorded in the Analytics SDK as a user attribute.
