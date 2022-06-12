@@ -8,7 +8,6 @@ Un little school project made in HarmonyOS.
 * [Installation](#Installation)
 * [Configuration](#Configuration)
 * [Environment Requirements](#Environment-Requirements)
-* [Operation Result](#Operation-Result)
 
 ## Introduction
 HmsAnalyticsKitDemo provides an example of integrating Analytics Kit into an `HAP`. It illustrates how to collect predefined events and custom events to improve user engagement and user preference.
