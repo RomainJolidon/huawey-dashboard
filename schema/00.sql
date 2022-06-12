@@ -12,5 +12,5 @@ CREATE TYPE app_theme AS ENUM ('dark', 'light');
 
 CREATE TABLE user_preferences (
     user_id uuid UNIQUE NOT NULL REFERENCES users(id),
-    city text[] NOT NULL DEFAULT '{Paris}'
+    cities text[] NOT NULL DEFAULT '{Paris}'
 );

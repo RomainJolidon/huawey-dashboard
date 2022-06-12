@@ -7,25 +7,25 @@
                         scrolleffect="fade">
                     <div class="swiperContent">
                         <div class="weatherInfo">
-                            <text class="text">{{$item.City}}</text>
-                            <text class="text" style="font-size: 50px;">{{$item.Temp}}</text>
+                            <text class="text">{{$item.city}}</text>
+                            <text class="text" style="font-size: 50px;">{{$item.temp}}</text>
                         </div>
                         <div class="weatherIMG">
-                            <image class="weatherLogo" src="{{$item.Icon}}"></image>
-                            <text class="text">{{$item.Description}}</text>
+                            <image class="weatherLogo" src="{{$item.icon}}"></image>
+                            <text class="text">{{$item.description}}</text>
                         </div>
                     </div>
                     <div class="swiperContent">
-                        <text class="text">Max temp: {{$item.Max_temp}}</text>
-                        <text class="text">Min temp: {{$item.Min_temp}}</text>
-                        <text class="text">Feel like: {{$item.Feel_temp}}</text>
+                        <text class="text">Max temp: {{$item.max_temp}}</text>
+                        <text class="text">Min temp: {{$item.min_temp}}</text>
+                        <text class="text">Feel like: {{$item.feel_like}}</text>
                     </div>
                     <div class="swiperContent">
                         <div>
-                            <text class="text">Sunrise: {{$item.SunRise}}</text>
+                            <text class="text">Sunrise: {{$item.sunrise}}</text>
                         </div>
                         <div>
-                            <text class="text">Sunset: {{$item.SunSet}}</text>
+                            <text class="text">Sunset: {{$item.sunset}}</text>
                         </div>
                     </div>
                 </swiper>
@@ -40,7 +40,7 @@
                 </text>
                 <input placeholder="City" onchange="getCityName">
                 </input>
-                <image id="addBTN" src="../../../common/images/plus.png" onclick="addCity"></image>
+                <image id="addBTN" src="../../../common/images/plus.png" onclick="pushCityToDB"></image>
             </div>
         </div>
     </dialog>

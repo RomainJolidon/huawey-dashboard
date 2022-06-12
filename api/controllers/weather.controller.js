@@ -39,7 +39,7 @@ class WeatherController {
             Promise.all(weatherDatas).then((awaitedData) => {
                 resolve(awaitedData.map(data => ({
                     city: data.name,
-                    icon: `http://openweathermap.org/img/w/${data.weather[0].icon}.png`,
+                    icon: `https://openweathermap.org/img/w/${data.weather[0].icon}.png`,
                     description: data.weather[0].description,
                     temp: data.main.temp,
                     max_temp: data.main.temp_max,

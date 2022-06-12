@@ -53,6 +53,7 @@ export default {
     onInit(){
         console.info(this.pageIndex);
         console.log(this.pageIndex);
+
     },
 
     getSearchInput(e) {

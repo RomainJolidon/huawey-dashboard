@@ -63,9 +63,9 @@
           }
         ],
         "name": "com.example.huawei_dashboard_mobile.MainAbility",
-        "icon": "$media:icon",
+        "icon": "$media:logo",
         "description": "$string:mainability_description",
-        "label": "$string:entry_MainAbility",
+        "label": "$string:name",
         "type": "page",
         "launchType": "standard"
       }
